@@ -320,6 +320,12 @@ footer {
   height: 85px;
   object-fit: contain; 
 }
+
+/* Hide the audio toggle image until JS sets the correct themed variant
+   This prevents a flash of the default 'off' icon before theme.js updates it. */
+#audio-toggle img {
+  visibility: hidden;
+}
 /* Custom Sparkle Images */
 .sparkle {
   width: 150px; 

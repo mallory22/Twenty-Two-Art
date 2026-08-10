@@ -102,6 +102,8 @@ const updateAudioIcon = () => {
 
 // Ensure audio button reflects stored state on load
 updateAudioIcon();
+// Reveal the audio icon after initialization to avoid showing the wrong default image briefly
+if (audioImg) audioImg.style.visibility = 'visible';
 
 // Theme toggle behavior
 if (themeBtn) {
