@@ -39,9 +39,13 @@ const setStoredTheme = (theme) => {
 
 const getStoredAudio = () => {
   try {
-    return localStorage.getItem(audioStorageKey) === 'true';
+    const v = localStorage.getItem(audioStorageKey);
+    // default to audio ON for first-time visitors
+    if (v === null) return true;
+    return v === 'true';
   } catch {
-    return false;
+    // If storage fails for any reason, be permissive and enable audio
+    return true;
   }
 };
 

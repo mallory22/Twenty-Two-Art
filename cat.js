@@ -8,9 +8,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     try {
-      return localStorage.getItem('audio-on') === 'true';
+      const v = localStorage.getItem('audio-on');
+      if (v === null) return true; // Default to audio-on for first-time visitors
+      return v === 'true';
     } catch {
-      return false;
+      return true;
     }
   };
 
