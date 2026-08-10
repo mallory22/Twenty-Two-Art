@@ -13,29 +13,9 @@ const sounds = {
   darkMode: new Audio('sounds/darkmode.mp3'),
   audioOn: new Audio('sounds/audioon.mp3'),
 };
-// Set default volumes and preload.
-Object.values(sounds).forEach(a => { a.preload = 'auto'; a.volume = 1.0; });
-
-// Keep a direct reference to the primary click sound for convenience
-const clickSound = sounds.button || null;
-
-// Use Web Audio API to apply a mild gain boost to the button sound (works even when element volume is at 1.0).
-// This provides a perceptible loudness increase without changing the audio file.
-let __audioContext = null;
-try {
-  const AudioCtx = window.AudioContext || window.webkitAudioContext;
-  if (AudioCtx && clickSound) {
-    __audioContext = new AudioCtx();
-    const source = __audioContext.createMediaElementSource(clickSound);
-    const gainNode = __audioContext.createGain();
-    // Mild boost: 1.35 = ~35% louder. Browsers may clamp to avoid distortion if necessary.
-    gainNode.gain.value = 1.35;
-    source.connect(gainNode).connect(__audioContext.destination);
-  }
-} catch (e) {
-  // If Web Audio setup fails (e.g., already connected or not allowed), fall back to element volume only.
-  __audioContext = null;
-}
+// Set default volumes and preload. Make the button sound a bit louder so clicks are more audible.
+Object.values(sounds).forEach(a => { a.preload = 'auto'; a.volume = 0.85; });
+if (sounds.button) sounds.button.volume = 1.0;
 
 const applyTheme = (useLightMode) => {
   document.body.classList.toggle('light-mode', useLightMode);
@@ -94,10 +74,6 @@ let isAudioOn = getStoredAudio();
 const playIfAudioOn = (audioObj) => {
   if (!isAudioOn || !audioObj) return;
   try {
-    // Resume AudioContext on first user gesture if necessary (some browsers suspend it until user interaction)
-    if (__audioContext && __audioContext.state === 'suspended') {
-      __audioContext.resume().catch(() => {});
-    }
     audioObj.currentTime = 0;
     // play() returns a promise; ignore rejections (browsers may block autoplay until user gesture)
     audioObj.play().catch(() => {});
