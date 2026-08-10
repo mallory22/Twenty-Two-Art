@@ -323,14 +323,19 @@ footer {
     }
 
     .top-controls {
-        top: 14px;
-        left: 14px;
-        gap: 24px;
+        top: 28px; /* move further down */
+        left: 6px; /* move a bit more left */
+        gap: 40px; /* more separation to avoid overlap */
     }
 
     .top-controls .icon-btn {
-        width: 44px;
-        height: 44px;
+        width: 28px; /* smaller buttons */
+        height: 28px;
+    }
+
+    .top-controls .icon-btn img {
+        width: 18px;
+        height: 18px;
     }
 
     .top-right-panel {
@@ -342,7 +347,7 @@ footer {
     }
 
     .panel {
-        padding: 24px 20px 86px;
+        padding: 24px 20px 140px; /* increased bottom padding to keep cat inside */
     }
 
     .panel h1,
@@ -369,11 +374,11 @@ footer {
 
     #lotus-cat {
         position: absolute;
-        left: 50%;
-        bottom: -56px;
+        left: 40%; /* shift left a bit */
+        bottom: -110px; /* move further down so body rests on panel edge */
         transform: translateX(-50%);
-        width: 170px;
-        max-width: 40vw;
+        width: 220px; /* slightly larger */
+        max-width: 52vw;
         margin: 0;
         z-index: 1;
     }
