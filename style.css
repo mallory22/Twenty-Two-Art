@@ -325,7 +325,12 @@ footer {
     .top-controls {
         top: 14px;
         left: 14px;
-        gap: 14px;
+        gap: 24px;
+    }
+
+    .top-controls .icon-btn {
+        width: 44px;
+        height: 44px;
     }
 
     .top-right-panel {
@@ -365,10 +370,10 @@ footer {
     #lotus-cat {
         position: absolute;
         left: 50%;
-        bottom: -46px;
+        bottom: -56px;
         transform: translateX(-50%);
-        width: 150px;
-        max-width: 36vw;
+        width: 170px;
+        max-width: 40vw;
         margin: 0;
         z-index: 1;
     }
