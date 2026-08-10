@@ -314,27 +314,84 @@ footer {
 
 @media (max-width: 900px) {
     .content-wrapper {
-        padding-top: 130px;
-        padding-bottom: 90px;
+        padding-top: 120px;
+        padding-bottom: 110px;
     }
 
     .portfolio-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
+    .top-controls {
+        top: 14px;
+        left: 14px;
+        gap: 14px;
+    }
+
     .top-right-panel {
         position: fixed;
-        top: 16px;
-        right: 16px;
+        top: 14px;
+        right: 14px;
         z-index: 20;
+        padding: 10px;
+    }
+
+    .panel {
+        padding: 24px 20px 86px;
+    }
+
+    .panel h1,
+    .panel h2 {
+        flex-wrap: wrap;
+        gap: 0.35rem;
+        margin-bottom: 16px;
+    }
+
+    .nav-menu {
+        gap: 14px;
+    }
+
+    .nav-btn {
+        width: min(100%, 300px);
+        padding: 12px 16px;
+    }
+
+    .sparkle {
+        width: 70px;
+        max-width: 22vw;
+        margin: 0 6px;
     }
 
     #lotus-cat {
-        position: static;
-        display: block;
-        width: 180px;
-        max-width: 45vw;
-        margin: 12px auto 0;
+        position: absolute;
+        left: 50%;
+        bottom: -46px;
+        transform: translateX(-50%);
+        width: 150px;
+        max-width: 36vw;
+        margin: 0;
+        z-index: 1;
+    }
+
+    .about-layout {
+        flex-direction: column;
+        gap: 20px;
+        align-items: stretch;
+    }
+
+    .about-side-stack {
+        order: -1;
+        width: min(100%, 500px);
+        margin: 0 auto;
+    }
+
+    .about-bio-panel {
+        width: min(100%, 500px);
+        margin: 0 auto;
+    }
+
+    .about-side-panel {
+        min-height: auto;
     }
 
     footer {
