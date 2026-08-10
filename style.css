@@ -91,15 +91,6 @@ body {
     cursor: pointer;
 }
 
-/* Ensure the meow variant matches the normal cat positioning/sizing on desktop */
-#lotus-cat.meowing {
-    position: absolute;
-    bottom: -185px;
-    left: -30px;
-    width: 325px;
-    cursor: pointer;
-}
-
 h1, h2 {
     color: var(--header-text);
     margin-bottom: 24px;
@@ -334,18 +325,12 @@ footer {
     .top-controls {
         top: 14px;
         left: 14px;
-        gap: 26px;
+        gap: 24px;
     }
 
-    /* Slightly smaller buttons on mobile; images a little larger than the button */
     .top-controls .icon-btn {
-        width: 40px;
-        height: 40px;
-    }
-    .top-controls .icon-btn img {
-        width: 46px;
-        height: 46px;
-        object-fit: contain;
+        width: 44px;
+        height: 44px;
     }
 
     .top-right-panel {
@@ -382,22 +367,15 @@ footer {
         margin: 0 6px;
     }
 
-    /* Mobile cat positioning: 10px further down and 5px further to the left from the previous baseline */
     #lotus-cat {
         position: absolute;
-        left: calc(50% - 10px); /* 5px further left */
-        bottom: -76px; /* 10px further down */
+        left: 50%;
+        bottom: -56px;
         transform: translateX(-50%);
-        width: 180px;
-        max-width: 44vw;
+        width: 170px;
+        max-width: 40vw;
         margin: 0;
         z-index: 1;
-    }
-
-    /* Meow variant: slightly smaller and a few pixels further down */
-    #lotus-cat.meowing {
-        width: 170px; /* slightly smaller */
-        bottom: -82px; /* a few pixels further down */
     }
 
     .about-layout {
