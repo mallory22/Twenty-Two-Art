@@ -306,11 +306,36 @@ footer {
 
 @media (max-width: 900px) {
     .content-wrapper {
-        padding-top: 100px;
+        padding-top: 130px;
+        padding-bottom: 90px;
     }
 
     .portfolio-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .top-right-panel {
+        position: fixed;
+        top: 16px;
+        right: 16px;
+        z-index: 20;
+    }
+
+    #lotus-cat {
+        width: 180px;
+        max-width: 45vw;
+        margin-top: 12px;
+    }
+
+    footer {
+        flex-direction: column;
+        gap: 12px;
+        padding: 24px 20px;
+    }
+
+    .palette {
+        position: static;
+        margin-top: 4px;
     }
 }
 /* Custom Icon Images */
