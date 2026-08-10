@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TwentyTwo! Art</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- top controls-->
+<div class="top-controls">
+  <button id="theme-toggle" class="icon-btn">
+    <img id="theme-img" src="assets/lightmode.png" alt="Theme Toggle">
+  </button>
+  
+  <button id="audio-toggle" class="icon-btn">
+    <img src="assets/darkaudiooff.png" alt="Audio Toggle">
+  </button>
+</div>
+  <div class="top-right-panel">
+    <button id="counter-btn" class="nav-btn">22</button>
+    <div id="click-count">22s: 0</div>
+  </div>
+<!-- Main Content Area -->
+  <main class="content-wrapper">
+    
+    <!-- HOME PAGE PANEL -->
+    <div class="panel" style="min-height: 400px; max-width: 750px; display:flex; flex-direction:column; align-items:center; text-align:center; position:relative;"> 
+      <h1 style="display:flex; justify-content:center; align-items:center; gap:0.3rem;">
+        <img src="assets/sparkles2.png" alt="sparkle" class="sparkle"> 
+        TwentyTwo! Art 
+        <img src="assets/sparkles1.png" alt="sparkle" class="sparkle">
+      </h1>
+      
+      <nav class="nav-menu">
+        <a href="portfolio.html" class="nav-btn">portfolio</a>
+        <a href="about.html" class="nav-btn">about</a>
+        <a href="commissions.html" class="nav-btn">commissions</a> 
+      </nav>
+    <!-- cat image -->
+      <img id="lotus-cat" src="assets/lotus.png" alt="A sleeping calico cat" 
+           style="position: absolute; bottom: -185px; left: -30px; width: 325px; cursor: pointer;">
+    </div>
+</main>
+
+<!-- Footer -->
+<footer>
+    <div class="footer-text">
+      <p>thank you for visiting my website!</p>
+      <p>contact: mallorytwentytwo@gmail.com</p>
+    </div>
+    <div class="palette">
+      <div class="color-dot" style="background: #231942;"></div>
+      <div class="color-dot" style="background: #4a3b7a;"></div>
+      <div class="color-dot" style="background: #8ca2e8;"></div>
+      <div class="color-dot" style="background: #a698e8;"></div>
+      <div class="color-dot" style="background: #f4e7c3;"></div>
+    </div>
+  </footer>
+
+  <!-- Theme Toggle Script -->
+  <script src="cat.js"></script>
+  <script src="theme.js"></script>
+</body>
+
+</html>

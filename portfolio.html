@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TwentyTwo! Art</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- top controls-->
+<div class="top-controls">
+  <button id="theme-toggle" class="icon-btn">
+    <img id="theme-img" src="assets/lightmode.png" alt="Theme Toggle">
+  </button>
+  
+  <button id="audio-toggle" class="icon-btn">
+    <img src="assets/darkaudiooff.png" alt="Audio Toggle">
+  </button>
+</div>
+<!-- main content -->
+  <main class="content-wrapper">
+      <div class="portfolio-layout">
+    <div class="panel portfolio-panel" style="min-height: 400px; max-width: 750px; display:flex; flex-direction:column; align-items:center; text-align:center; position:relative;">
+    <h2 style="display:flex; justify-content:center; align-items:center; gap:0.3rem;">
+      <img src="assets/sparkles2.png" alt="sparkle" class="sparkle"> 
+      my portfolio 
+      <img src="assets/sparkles1.png" alt="sparkle" class="sparkle">
+    </h2>
+    <nav class="nav-menu">
+      <a href="index.html" class="nav-btn">home</a>
+      <a href="about.html" class="nav-btn">about</a>
+      <a href="commissions.html" class="nav-btn">commissions</a>
+    </nav>
+  </div>
+   <!-- portfolio images -->
+  <div class="portfolio-grid">
+    <img src="assets/artwork23.png" alt="Art 1: A pfp artwork of my sona">
+    <img src="assets/artwork21.png" alt="Art 2: Fanart of Niko from Oneshot with a stack of pancakes ">
+    <img src="assets/artwork16.png" alt="Art 3: My art of lalalilala's(af) OC Jun Xihe kissing a butterfly">
+    <img src="assets/artwork12.png" alt="Art 4: Fanart study of Columbina from Genshin Impact">
+    <img src="assets/artwork5.jpg" alt="Art 5: A fluffy white cat laying in a field of grass and flowers ">
+    <img src="assets/artwork10.png" alt="Art 6: Fanart of Mad Mew Mew/Pink from Deltarune making a heart with her hands">
+    <img src="assets/artwork11.png" alt="Art 7: Fanart of Pink (ghost) from Deltarune touching her face">
+    <img src="assets/artwork13.png" alt="Art 8: My OC Lumi in a snowy forest">
+    <img src="assets/artwork1.jpg" alt="Art 9: A fullbody artwork of Jupitersandwich's OC Shuchun Hé preforming ballet">
+    <img src="assets/artwork3.jpg" alt="Art 10: Fanart of Sandrone from Genshin Impact (half-body)">
+    <img src="assets/artwork18.png" alt="Art 11: Venti from Genshin Impact in a maid outfit for Egga">
+    <img src="assets/artwork4.jpg" alt="Art 12: A landscape artwork of a field with trees and mountains in the background. In the front, a cat is riding a skateboard">
+    <img src="assets/artwork17.png" alt="Art 13: Eloise by Crosstariale (af) making brownies">
+    <img src="assets/artwork6.jpg" alt="Art 14: A life study of blue flowers and white buds">
+    <img src="assets/artwork7.png" alt="Art 15: A witch with purple hair and a black outfit waving and holding her staff">
+    <img src="assets/artwork22.png" alt="Art 16: Artwork of Pink Koyuh by Koyuh(af)">
+    <img src="assets/artwork19.png" alt="Art 17: Fanart of Kris from Deltarune falling into the dark world (made for dubtarune) ">
+    <img src="assets/artwork20.png" alt="Art 18: Fanart of Frisk(genocide route) from Undertale holding a knife (made for dubertale)">
+    <img src="assets/artwork15.png" alt="Art 19: Art of Honey_VBee's (af) Lizzy smiling and making a peace sign with clouds in the background">
+    <img src="assets/artwork9.png" alt="Art 20: Headshot of kallykal's(af) OC Kally smiling">
+
+  </div>
+</div>
+</main>
+<!-- footer -->
+<footer>
+    <div class="footer-text">
+      <p>thank you for visiting my website!</p>
+      <p>contact: mallorytwentytwo@gmail.com</p>
+    </div>
+    <div class="palette">
+      <div class="color-dot" style="background: #231942;"></div>
+      <div class="color-dot" style="background: #4a3b7a;"></div>
+      <div class="color-dot" style="background: #8ca2e8;"></div>
+      <div class="color-dot" style="background: #a698e8;"></div>
+      <div class="color-dot" style="background: #f4e7c3;"></div>
+    </div>
+  </footer>
+ 
+  <div id="portfolio-overlay" class="image-overlay" aria-hidden="true" role="dialog" aria-label="Expanded artwork preview">
+    <div class="overlay-content">
+      <img id="portfolio-overlay-img" src="" alt="Expanded artwork preview">
+    </div>
+    <div class="close-hint">click outside the image or press escape to close!</div>
+  </div>
+ 
+  <!-- theme and expanded artwork script -->
+  <script src="theme.js"></script>
+  <script>
+    const portfolioImages = document.querySelectorAll('.portfolio-grid img');
+    const portfolioOverlay = document.getElementById('portfolio-overlay');
+    const portfolioOverlayImg = document.getElementById('portfolio-overlay-img');
+ 
+    const closePortfolioOverlay = () => {
+      portfolioOverlay.classList.remove('active');
+      portfolioOverlay.setAttribute('aria-hidden', 'true');
+      portfolioOverlayImg.src = '';
+      portfolioOverlayImg.alt = 'Expanded artwork preview';
+      document.body.style.overflow = '';
+    };
+ 
+    portfolioImages.forEach((image) => {
+      image.addEventListener('click', () => {
+        portfolioOverlayImg.src = image.src;
+        portfolioOverlayImg.alt = image.alt || 'Expanded artwork preview';
+        portfolioOverlay.classList.add('active');
+        portfolioOverlay.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+ 
+    portfolioOverlay.addEventListener('click', (event) => {
+      if (event.target === portfolioOverlay) {
+        closePortfolioOverlay();
+      }
+    });
+ 
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && portfolioOverlay.classList.contains('active')) {
+        closePortfolioOverlay();
+      }
+    });
+  </script>
+</body>
+ 
+</html>

@@ -1,0 +1,122 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TwentyTwo! Art</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- top controls-->
+<div class="top-controls">
+  <button id="theme-toggle" class="icon-btn">
+    <img id="theme-img" src="assets/lightmode.png" alt="Theme Toggle">
+  </button>
+  
+  <button id="audio-toggle" class="icon-btn">
+    <img src="assets/darkaudiooff.png" alt="Audio Toggle">
+  </button>
+</div>
+<!-- Main Content Area -->
+  <main class="content-wrapper">
+    <div class="commissions-layout">
+    <!-- Left Nav Panel -->
+    <div class="panel commissions-panel " style="min-height: 400px; min-width: 600px; display:flex; flex-direction:column; align-items:center; text-align:center; position:relative;">
+        <h2 style="display:flex; justify-content:center; align-items:center; gap:0rem;">
+          <img src="assets/sparkles2.png" alt="sparkle" class="sparkle"> 
+          commissions 
+          <img src="assets/sparkles1.png" alt="sparkle" class="sparkle">
+        </h2>
+        <div class="badge">OPEN</div>
+        <div style="margin-bottom: 20px; font-size: 1.2rem;">
+        <a href="https://docs.google.com/document/d/13h1ldUl2OB_9GAVL0rUfIqsnYbmG7prPT8LGwigouD4/edit?usp=sharing" style="color: var(--text-colour);">INFO</a> | 
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeNv80gztezVMFOqmA-oovuSZKMa9NPKjKVBu8n3tmmAosKZA/viewform?usp=sharing&ouid=109476569930085767616" style="color: var(--text-colour);">FORM</a>
+        </div>
+        <nav class="nav-menu">
+        <a href="index.html" class="nav-btn">home</a>
+        <a href="portfolio.html" class="nav-btn">portfolio</a>
+        <a href="about.html" class="nav-btn">about</a>
+        </nav>
+    </div>
+
+    <!-- Middle Images -->
+    <div style="display: flex; flex-direction: column;">
+        <img src="assets/artwork23.png" class="example-img" alt="Headshot example: A pfp artwork of my sona">
+        <img src="assets/artwork3.jpg" class="example-img" alt="Halfbody example: Fanart of Sandrone from Genshin Impact">
+        <img src="assets/artwork1.jpg" class="example-img" alt="Fullbody example: An artwork of Jupitersandwich's OC Shuchun Hé preforming ballet">
+    </div>
+ 
+  <!-- Right Pricing -->
+  <div class="pricing-stack">
+    <div class="price-box">headshots - $25</div>
+    <div class="price-box">halfbody - $40</div>
+    <div class="price-box" style="margin-bottom: 5px;">fullbody - $60</div>
+    <p class="pricing-note">(complex background +$15<br>extra character + 50%<br>animal companion + $15)</p>
+  </div>
+</div>
+</main>
+
+<!-- Footer -->
+<footer>
+    <div class="footer-text">
+      <p>thank you for visiting my website!</p>
+      <p>contact: mallorytwentytwo@gmail.com</p>
+    </div>
+    <div class="palette">
+      <div class="color-dot" style="background: #231942;"></div>
+      <div class="color-dot" style="background: #4a3b7a;"></div>
+      <div class="color-dot" style="background: #8ca2e8;"></div>
+      <div class="color-dot" style="background: #a698e8;"></div>
+      <div class="color-dot" style="background: #f4e7c3;"></div>
+    </div>
+  </footer>
+
+  <div id="commissions-overlay" class="image-overlay" aria-hidden="true" role="dialog" aria-label="Expanded example preview">
+    <div class="overlay-content">
+      <img id="commissions-overlay-img" src="" alt="Expanded example preview">
+    </div>
+    <div class="close-hint">click outside the image or press escape to close!</div>
+  </div>
+
+  <!-- Theme Toggle Script -->
+  <script src="theme.js"></script>
+  <script>
+    const commissionsImages = document.querySelectorAll('.example-img');
+    const commissionsOverlay = document.getElementById('commissions-overlay');
+    const commissionsOverlayImg = document.getElementById('commissions-overlay-img');
+
+    const closeCommissionsOverlay = () => {
+      commissionsOverlay.classList.remove('active');
+      commissionsOverlay.setAttribute('aria-hidden', 'true');
+      commissionsOverlayImg.src = '';
+      commissionsOverlayImg.alt = 'Expanded example preview';
+      document.body.style.overflow = '';
+    };
+
+    commissionsImages.forEach((image) => {
+      image.addEventListener('click', () => {
+        commissionsOverlayImg.src = image.src;
+        commissionsOverlayImg.alt = image.alt || 'Expanded example preview';
+        commissionsOverlay.classList.add('active');
+        commissionsOverlay.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    commissionsOverlay.addEventListener('click', (event) => {
+      if (event.target === commissionsOverlay) {
+        closeCommissionsOverlay();
+      }
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && commissionsOverlay.classList.contains('active')) {
+        closeCommissionsOverlay();
+      }
+    });
+  </script>
+</body>
+
+</html>
